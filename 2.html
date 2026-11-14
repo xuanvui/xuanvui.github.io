@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tuyển Tập Nhạc</title>
 <style>
-:root{--bg:#fbf7f4;--card:#fff;--ink:#241a1a;--mute:#7a6a6a;--line:#efe4e0;--brand:#c62828;--brand2:#ff7043;--soft:#fdeceb;--link:#0b5ed7;--linkbg:#eef5ff;--shadow:0 6px 24px rgba(120,40,30,.10);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15110f;--card:#211a18;--ink:#f5ece8;--mute:#a8978f;--line:#33282570;--brand:#ff6b5e;--brand2:#ffa040;--soft:#3a1f1c;--link:#8ab8ff;--linkbg:#1b2638;--shadow:0 6px 24px rgba(0,0,0,.4);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#15110f;--card:#211a18;--ink:#f5ece8;--mute:#a8978f;--line:#33282570;--brand:#ff6b5e;--brand2:#ffa040;--soft:#3a1f1c;--link:#8ab8ff;--linkbg:#1b2638;--shadow:0 6px 24px rgba(0,0,0,.4);color-scheme:dark}
+:root{--bg:#fbf7f4;--card:#fff;--ink:#241a1a;--mute:#7a6a6a;--line:#efe4e0;--brand:#c62828;--brand2:#ff7043;--soft:#fdeceb;--shadow:0 6px 24px rgba(120,40,30,.10);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15110f;--card:#211a18;--ink:#f5ece8;--mute:#a8978f;--line:#33282570;--brand:#ff6b5e;--brand2:#ffa040;--soft:#3a1f1c;--shadow:0 6px 24px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15110f;--card:#211a18;--ink:#f5ece8;--mute:#a8978f;--line:#33282570;--brand:#ff6b5e;--brand2:#ffa040;--soft:#3a1f1c;--shadow:0 6px 24px rgba(0,0,0,.4);color-scheme:dark}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 96px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
@@ -25,7 +25,6 @@ header p{margin:6px 0 0;opacity:.92;font-size:14px}
 #sug li{padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:10px;align-items:center}
 #sug li small{color:var(--mute);font-size:12px;white-space:nowrap}
 #sug li.on,#sug li:hover{background:var(--soft)}
-#sug mark{background:none;color:var(--brand);font-weight:800}
 #sug .none{color:var(--mute);cursor:default}
 .tools{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 .tools button,.theme{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer}
@@ -46,168 +45,265 @@ header p{margin:6px 0 0;opacity:.92;font-size:14px}
 .song .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--brand);font-size:12px;font-weight:800;display:grid;place-items:center;margin-top:2px}
 .song .b{flex:1;min-width:0}
 .song h3{margin:0 0 8px;font-size:16px;text-transform:uppercase;letter-spacing:.2px}
-.lk{display:flex;gap:8px;align-items:stretch;margin-top:6px}
-.lk a{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--linkbg);color:var(--link);text-decoration:none;font-size:14px;border:1px dashed color-mix(in srgb,var(--link) 35%,transparent)}
-.lk a span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.lk a:active{opacity:.7}
-.lk button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:0 12px;cursor:pointer;font-size:13px}
+.lk{display:flex;gap:8px;align-items:stretch;margin-top:6px;flex-wrap:wrap}
+.lk a.play{
+  flex:1;min-width:120px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 16px;
+  border-radius:10px;
+  background:var(--brand);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;font-weight:600;
+  border:none;
+  transition:opacity .15s, transform .1s;
+}
+.lk a.play:active{opacity:.85;transform:scale(.98)}
 .song.flash{animation:fl 2.2s ease}
 @keyframes fl{0%,60%{background:var(--soft);box-shadow:0 0 0 2px var(--brand)}100%{background:transparent;box-shadow:0 0 0 2px transparent}}
 #toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translateX(-50%) translateY(20px);background:#222;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:50}
 #toast.show{opacity:1;transform:translateX(-50%)}
 footer{text-align:center;color:var(--mute);font-size:12px;padding-bottom:20px}
+.error-box{background:#fff3cd;color:#856404;padding:16px;border-radius:12px;margin:20px 0;border:1px solid #ffeeba;font-size:14px}
 </style>
 </head>
 <body>
 <header>
-<h1>🎵 Tuyển Tập Nhạc</h1>
-<p><span id="total">100</span> bài hát · 5 mục · bấm để nghe trên YouTube</p>
+  <h1>🎵 Tuyển Tập Nhạc</h1>
+  <p><span id="total">0</span> bài hát · bấm <b>Play</b> để nghe trên Google Drive</p>
 </header>
 <main class="wrap">
-<div class="bar">
-<div class="srch">
-<span class="ic">🔍</span>
-<input id="q" type="search" placeholder="Gõ tên bài hát (gần đúng cũng được)…" autocomplete="off" enterkeyhint="search">
-<button class="x" id="clr" aria-label="Xóa">×</button>
-<ul id="sug" role="listbox"></ul>
-</div>
-<div class="tools">
-<button id="openAll">Mở tất cả</button>
-<button id="closeAll">Thu gọn tất cả</button>
-<span class="sp"></span>
-<button class="theme" id="theme" aria-label="Đổi giao diện">🌓</button>
-</div>
-</div>
-<div id="app"></div>
-<footer>Các link “demo” là link tượng trưng — thay bằng link thật trong phần DATA.</footer>
+  <div class="bar">
+    <div class="srch">
+      <span class="ic">🔍</span>
+      <input id="q" type="search" placeholder="Gõ tên bài hát (gần đúng cũng được)…" autocomplete="off" enterkeyhint="search">
+      <button class="x" id="clr" aria-label="Xóa">×</button>
+      <ul id="sug" role="listbox"></ul>
+    </div>
+    <div class="tools">
+      <button id="openAll">Mở tất cả</button>
+      <button id="closeAll">Thu gọn tất cả</button>
+      <span class="sp"></span>
+      <button class="theme" id="theme" aria-label="Đổi giao diện">🌓</button>
+    </div>
+  </div>
+
+  <div id="app"></div>
+  <div id="error" class="error-box" style="display:none"></div>
+
+  <footer>Các link demo là tượng trưng — thay bằng link Google Drive thật trong phần DATA.</footer>
 </main>
 <div id="toast"></div>
+
 <script>
-// ===== DỮ LIỆU: sửa tại đây =====
-var Y="https://youtu.be/";
-var d=0;
-function P(names){return names.map(function(n){d++;return [n,[Y+"demo"+String(d).padStart(3,"0")]]})}
-var DATA=[
-{t:"Nhạc Xuân & Tết",e:"🧧",s:[
-["Như hoa mùa xuân",[Y+"cKQE0u520hk?si=4NL8WuixD0ei4rvR",Y+"BmG5xcouP_k?si=yLIyXMgqooM7tjIf"]],
-["Đoản ca xuân",[Y+"6ED2_ackWUY?si=suVndTnPF7wCLy7g"]],
-["Ngày Xuân Long Phụng Sum Vầy",[Y+"-G80VOHd1Pk?si=bgJKVXFhs-oEq4xv"]],
-["Thần Tài Đến",[Y+"DcXOgx2cvjA?si=J5X_xwyDEZn0Vbfn"]],
-["Đón Xuân",[Y+"uQiApUd99wQ?si=_PgwCWfW2iNpAFh1"]],
-["Tết Là Tết",[Y+"yV_OtSuKxmU?si=uMJu7tc_UFSW83kS"]],
-["Cánh Thiệp Đầu Xuân",[Y+"-VMrTczP_Ck?si=k0utkCXkPEE7VodS"]],
-["Anh Cho Em Mùa Xuân",[Y+"X5l9cU2D2U4?si=wM20iojp5UEyIbTW"]],
-["Tết Bình An",[Y+"hrI74P6v-UQ?si=e84jKpnY5TIFWZYH"]]
-].concat(P(["Xuân Về Trên Phố","Mùa Xuân Đầu Tiên","Hoa Đào Nở","Câu Chúc Đầu Năm","Xuân Yêu Thương","Lì Xì Đầu Năm","Pháo Hoa Đêm Giao Thừa","Mai Vàng Rực Rỡ","Bánh Chưng Xanh","Về Quê Ăn Tết","Chúc Xuân Vạn Sự"]))},
-{t:"Tình Ca Trữ Tình",e:"💞",s:[
-["Xích Lại Gần Nhau",[Y+"6Rp8Ja3Sxxc?si=vBKONM8FICMSI2Cv"]],
-["Ngôi nhà hạnh phúc",[Y+"Mkcjcc-xa3Q?si=NWS6JD8KYCgq8jf-"]],
-["Tuyết Yêu Thương",[Y+"MvwvLrc4AsA?si=a-Qw362e1TivgsCo"]],
-["Chuyện cũ bỏ qua",[Y+"d9kOEz8QSAU?si=RVy5pTd8OUXrywNP",Y+"Qvu-HqyuvfM?si=uj2tyzAXMp-q0Jkn"]]
-].concat(P(["Em Là Giấc Mơ","Chiều Thu Nhớ Người","Nỗi Nhớ Quê Nhà","Lời Hẹn Ngày Mai","Tình Khúc Mùa Đông","Bên Em Mãi Mãi","Dấu Chân Kỷ Niệm","Con Đường Xưa","Người Ở Lại","Ngày Em Đến","Khúc Hát Ru Tình","Mưa Đêm Tâm Sự","Thương Về Miền Trung","Một Thoáng Yêu Thương","Nhớ Mãi Một Người","Chuyện Tình Sông Hương"]))},
-{t:"Nhạc Trẻ Sôi Động",e:"🔥",s:[
-["Muốn Cua Anh Làm Bồ",[Y+"-A15MFD-H1A?si=r3kVqkWvVe12NDyG"]],
-["Bài hát chưa đặt tên",[Y+"sN1kYXhSbB4?si=7vKpzaEMqLxuLwaj"]],
-["Chờ Bao Lâu",[Y+"Y3aZIZo1_2k?si=OaQB_PHhhwEKMmso"]],
-["That Why",[Y+"Z0ZOIlr5L-U?si=mbXeVjulxHPC4Sui"]],
-["Trời Còn Mưa Mãi",[Y+"QArqDbWVQmA?si=zp-yWyjed1bnrdlU"]]
-].concat(P(["Nhảy Cùng Nhau","Chill Cuối Tuần","Hè Rực Rỡ","Tình Yêu Tuổi Teen","Crush Của Tôi","Say Nắng","Đi Về Phía Biển","Giai Điệu Neon","Hôm Nay Tôi Vui","Beat Của Trái Tim","Thanh Xuân Ơi","Lên Đồ Đi Chơi","Mashup Triệu View","Remix Sôi Động","Party Tonight"]))},
-{t:"Gia Đình & Sum Họp",e:"🏡",s:P(["Ngôi Nhà Nhỏ Của Mẹ","Bữa Cơm Gia Đình","Công Cha Như Núi","Nghĩa Mẹ Như Nước","Ông Bà Yêu Dấu","Anh Em Một Nhà","Sum Họp Cuối Năm","Quây Quần Bên Mâm Cơm","Tiếng Cười Con Trẻ","Bài Ca Tuổi Thơ","Mẹ Ơi Con Nhớ","Ba Ơi Con Yêu","Đoàn Viên","Mái Ấm Yêu Thương","Hạnh Phúc Giản Đơn","Về Bên Gia Đình","Chị Em Gái","Cháu Thương Bà","Ngày Đoàn Tụ","Lời Ru Của Mẹ"])},
-{t:"Thư Giãn & Giai Điệu",e:"🌿",s:P(["Sáng Nhẹ Nhàng","Piano Dưới Mưa","Guitar Hoàng Hôn","Cà Phê Sáng","Gió Chiều Lộng","Biển Đêm Yên Tĩnh","Rừng Thông Sương Sớm","Nhạc Thiền Buổi Tối","Lofi Học Bài","Acoustic Mộc Mạc","Trà Chiều Thong Thả","Sóng Vỗ Bờ Xa","Đồng Quê Bình Yên","Nắng Mai Dịu Dàng","Ru Ngủ Đêm Khuya","Tiếng Đàn Bầu","Sáo Trúc Chiều Quê","Thư Giãn Cuối Ngày","Hơi Thở Chậm","Khoảng Lặng"])}
+// ===== DỮ LIỆU: SỬA TẠI ĐÂY =====
+// Cách viết đúng (kể cả chỉ 1 link cũng phải bọc trong []):
+// ["Tên bài", ["https://drive.google.com/file/d/FILE_ID/view?usp=drivesdk"]],
+
+var DATA = [
+  {
+    t: "Nhạc Xuân & Tết",
+    e: "🧧",
+    s: [
+      ["Xích Lại Gần Nhau", ["https://drive.google.com/file/d/16BRfYOGiBo9fR0vxNOAVJfFAJeP6hUag/view?usp=drivesdk"]],
+      ["La La La", ["https://drive.google.com/file/d/1Y9dd0HsK8ShrIgYNaibp-PFFMrvQuSqq/view?usp=drivesdk"]],
+      // Thêm các bài khác ở đây theo đúng format trên
+    ]
+  },
+  {
+    t: "Tình Ca Trữ Tình",
+    e: "💞",
+    s: [
+      // Ví dụ:
+      // ["Xích Lại Gần Nhau", ["https://drive.google.com/file/d/xxxxx/view?usp=drivesdk"]],
+    ]
+  },
+  {
+    t: "Nhạc Trẻ Sôi Động",
+    e: "🔥",
+    s: []
+  },
+  {
+    t: "Gia Đình & Sum Họp",
+    e: "🏡",
+    s: []
+  },
+  {
+    t: "Thư Giãn & Giai Điệu",
+    e: "🌿",
+    s: []
+  }
 ];
 // ================================
-var $=function(s){return document.querySelector(s)};
-var app=$("#app"),q=$("#q"),sug=$("#sug"),clr=$("#clr");
-var all=[],secEls=[];
-function norm(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"d").toLowerCase().replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim()}
-function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove("show")},1600)}
 
-DATA.forEach(function(sec,si){
-  var el=document.createElement("section");el.className="sec open";
-  var id="sec"+si;
-  el.innerHTML='<button aria-expanded="true" aria-controls="'+id+'"><span class="em">'+sec.e+'</span><span class="tt"><b>'+esc(sec.t)+'</b><span>'+sec.s.length+' bài hát</span></span><span class="ar">▾</span></button><div class="list" id="'+id+'"></div>';
-  var list=el.querySelector(".list"),btn=el.querySelector("button");
-  btn.onclick=function(){setOpen(si,!el.classList.contains("open"))};
-  sec.s.forEach(function(song,i){
-    var row=document.createElement("div");row.className="song";
-    var links=song[1].map(function(u,k){
-      var lab=song[1].length>1?"Link "+(k+1)+": ":"";
-      return '<div class="lk"><a href="'+u+'" target="_blank" rel="noopener"><span>▶ '+lab+u.replace("https://","").split("?")[0]+'</span></a><button data-u="'+u+'" aria-label="Sao chép link">Chép</button></div>';
-    }).join("");
-    row.innerHTML='<div class="n">'+(i+1)+'</div><div class="b"><h3>'+esc(song[0])+'</h3>'+links+'</div>';
-    row.querySelectorAll("button").forEach(function(b){b.onclick=function(){
-      var u=b.getAttribute("data-u");
-      (navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){toast("Đã sao chép link")},function(){toast("Không sao chép được")});
-    }});
-    list.appendChild(row);
-    all.push({name:song[0],n:norm(song[0]),si:si,el:row,sec:sec.t});
+var $ = function(s){ return document.querySelector(s); };
+var app = $("#app"), q = $("#q"), sug = $("#sug"), clr = $("#clr");
+var all = [], secEls = [];
+
+function norm(s){
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"d")
+         .toLowerCase().replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+}
+function esc(s){
+  return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; });
+}
+function toast(m){
+  var t = $("#toast");
+  t.textContent = m;
+  t.classList.add("show");
+  clearTimeout(toast.h);
+  toast.h = setTimeout(function(){ t.classList.remove("show"); }, 1600);
+}
+
+try {
+  DATA.forEach(function(sec, si){
+    var el = document.createElement("section");
+    el.className = "sec open";
+    var id = "sec" + si;
+
+    el.innerHTML = '<button aria-expanded="true" aria-controls="'+id+'">' +
+      '<span class="em">'+sec.e+'</span>' +
+      '<span class="tt"><b>'+esc(sec.t)+'</b><span>'+ (sec.s ? sec.s.length : 0) +' bài hát</span></span>' +
+      '<span class="ar">▾</span></button>' +
+      '<div class="list" id="'+id+'"></div>';
+
+    var list = el.querySelector(".list");
+    var btn = el.querySelector("button");
+    btn.onclick = function(){ setOpen(si, !el.classList.contains("open")); };
+
+    if (sec.s && Array.isArray(sec.s)) {
+      sec.s.forEach(function(song, i){
+        if (!song || !song[0]) return;
+
+        // Hỗ trợ cả 2 cách viết: ["tên", "link"] hoặc ["tên", ["link1","link2"]]
+        var urls = Array.isArray(song[1]) ? song[1] : (song[1] ? [song[1]] : []);
+        
+        var row = document.createElement("div");
+        row.className = "song";
+
+        var linksHtml = urls.map(function(u, k){
+          if (!u) return "";
+          var lab = urls.length > 1 ? "Play " + (k+1) : "Play";
+          return '<div class="lk"><a class="play" href="'+esc(u)+'" target="_blank" rel="noopener">▶ '+lab+'</a></div>';
+        }).join("");
+
+        row.innerHTML = '<div class="n">'+(i+1)+'</div>' +
+                        '<div class="b"><h3>'+esc(song[0])+'</h3>'+linksHtml+'</div>';
+
+        list.appendChild(row);
+        all.push({ name: song[0], n: norm(song[0]), si: si, el: row, sec: sec.t });
+      });
+    }
+
+    app.appendChild(el);
+    secEls.push(el);
   });
-  app.appendChild(el);secEls.push(el);
-});
-$("#total").textContent=all.length;
-function setOpen(i,o){var e=secEls[i];e.classList.toggle("open",o);e.querySelector("button").setAttribute("aria-expanded",o)}
-$("#openAll").onclick=function(){secEls.forEach(function(_,i){setOpen(i,true)})};
-$("#closeAll").onclick=function(){secEls.forEach(function(_,i){setOpen(i,false)})};
 
-// ===== Tìm kiếm gần đúng =====
-function score(nm,qn){
-  if(!qn)return 0;
-  if(nm===qn)return 100;
-  if(nm.indexOf(qn)===0)return 90;
-  var p=nm.indexOf(qn);if(p>-1)return 80-Math.min(p,20);
-  var toks=qn.split(" "),ok=0;
-  toks.forEach(function(t){if(nm.indexOf(t)>-1)ok++});
-  if(ok===toks.length)return 70;
-  if(ok>0)return 40+ok*8/toks.length;
-  // khớp rải rác theo thứ tự ký tự (gõ thiếu chữ)
-  var j=0;for(var i=0;i<nm.length&&j<qn.length;i++)if(nm[i]===qn[j])j++;
-  if(j===qn.length&&qn.length>=3)return 30;
-  // sai 1-2 ký tự: so sánh với từng từ
-  var best=0;nm.split(" ").forEach(function(w){toks.forEach(function(t){
-    if(t.length>=4&&Math.abs(w.length-t.length)<=1&&lev(w,t)<=1)best=Math.max(best,25)})});
-  return best;
+  $("#total").textContent = all.length;
+
+  if (all.length === 0) {
+    $("#error").style.display = "block";
+    $("#error").innerHTML = "<b>Chưa có bài hát nào được hiển thị.</b><br>Kiểm tra lại phần DATA: mỗi bài phải viết đúng dạng <code>[\"Tên bài\", [\"link\"]]</code>";
+  }
+
+} catch (err) {
+  $("#error").style.display = "block";
+  $("#error").innerHTML = "<b>Lỗi khi đọc dữ liệu:</b><br>" + esc(err.message) +
+    "<br><br>Thường là do bạn quên dấu ngoặc vuông <code>[]</code> hoặc thiếu dấu phẩy.";
+  console.error(err);
 }
-function lev(a,b){var m=[],i,j;for(i=0;i<=a.length;i++)m[i]=[i];for(j=0;j<=b.length;j++)m[0][j]=j;
-  for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++)m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return m[a.length][b.length]}
-var cur=[],act=-1;
+
+function setOpen(i, o){
+  var e = secEls[i];
+  e.classList.toggle("open", o);
+  e.querySelector("button").setAttribute("aria-expanded", o);
+}
+$("#openAll").onclick = function(){ secEls.forEach(function(_,i){ setOpen(i, true); }); };
+$("#closeAll").onclick = function(){ secEls.forEach(function(_,i){ setOpen(i, false); }); };
+
+// ===== Tìm kiếm =====
+function score(nm, qn){
+  if (!qn) return 0;
+  if (nm === qn) return 100;
+  if (nm.indexOf(qn) === 0) return 90;
+  var p = nm.indexOf(qn); if (p > -1) return 80 - Math.min(p, 20);
+  var toks = qn.split(" "), ok = 0;
+  toks.forEach(function(t){ if (nm.indexOf(t) > -1) ok++; });
+  if (ok === toks.length) return 70;
+  if (ok > 0) return 40 + ok * 8 / toks.length;
+  var j = 0;
+  for (var i = 0; i < nm.length && j < qn.length; i++) if (nm[i] === qn[j]) j++;
+  if (j === qn.length && qn.length >= 3) return 30;
+  return 0;
+}
+
+var cur = [], act = -1;
 function render(){
-  var qn=norm(q.value);clr.style.display=q.value?"block":"none";
-  if(!qn){sug.style.display="none";cur=[];return}
-  cur=all.map(function(s){return{s:s,sc:score(s.n,qn)}}).filter(function(x){return x.sc>0}).sort(function(a,b){return b.sc-a.sc}).slice(0,8);
-  act=cur.length?0:-1;
-  sug.innerHTML=cur.length?cur.map(function(x,i){
-    var nm=esc(x.s.name),k=x.s.n.indexOf(qn);
-    return '<li role="option" data-i="'+i+'" class="'+(i===0?"on":"")+'"><span>'+nm+'</span><small>'+esc(x.s.sec)+'</small></li>';
-  }).join(""):'<li class="none">Không tìm thấy bài phù hợp</li>';
-  sug.style.display="block";
-}
-function pick(i){
-  var x=cur[i];if(!x)return;
-  q.value=x.s.name;sug.style.display="none";clr.style.display="block";q.blur();
-  setOpen(x.s.si,true);
-  setTimeout(function(){x.s.el.scrollIntoView({behavior:"smooth",block:"center"});x.s.el.classList.remove("flash");void x.s.el.offsetWidth;x.s.el.classList.add("flash")},60);
-}
-q.addEventListener("input",render);
-q.addEventListener("focus",render);
-q.addEventListener("keydown",function(e){
-  if(sug.style.display!=="block")return;
-  var li=sug.querySelectorAll("li[data-i]");
-  if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();if(!li.length)return;
-    act=(act+(e.key==="ArrowDown"?1:-1)+li.length)%li.length;
-    li.forEach(function(l,i){l.classList.toggle("on",i===act)});li[act].scrollIntoView({block:"nearest"})}
-  else if(e.key==="Enter"){e.preventDefault();if(act>-1)pick(act)}
-  else if(e.key==="Escape"){sug.style.display="none"}
-});
-sug.addEventListener("mousedown",function(e){var l=e.target.closest("li[data-i]");if(l){e.preventDefault();pick(+l.dataset.i)}});
-sug.addEventListener("touchend",function(e){var l=e.target.closest("li[data-i]");if(l){e.preventDefault();pick(+l.dataset.i)}});
-document.addEventListener("click",function(e){if(!e.target.closest(".srch"))sug.style.display="none"});
-clr.onclick=function(){q.value="";render();q.focus()};
+  var qn = norm(q.value);
+  clr.style.display = q.value ? "block" : "none";
+  if (!qn) { sug.style.display = "none"; cur = []; return; }
 
-// ===== Giao diện sáng/tối =====
-$("#theme").onclick=function(){
-  var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
-  r.dataset.theme=dark?"light":"dark";
+  cur = all.map(function(s){ return {s:s, sc: score(s.n, qn)}; })
+           .filter(function(x){ return x.sc > 0; })
+           .sort(function(a,b){ return b.sc - a.sc; })
+           .slice(0, 8);
+
+  act = cur.length ? 0 : -1;
+  sug.innerHTML = cur.length
+    ? cur.map(function(x,i){
+        return '<li role="option" data-i="'+i+'" class="'+(i===0?"on":"")+'"><span>'+esc(x.s.name)+'</span><small>'+esc(x.s.sec)+'</small></li>';
+      }).join("")
+    : '<li class="none">Không tìm thấy bài phù hợp</li>';
+  sug.style.display = "block";
+}
+
+function pick(i){
+  var x = cur[i]; if (!x) return;
+  q.value = x.s.name;
+  sug.style.display = "none";
+  clr.style.display = "block";
+  q.blur();
+  setOpen(x.s.si, true);
+  setTimeout(function(){
+    x.s.el.scrollIntoView({behavior:"smooth", block:"center"});
+    x.s.el.classList.remove("flash");
+    void x.s.el.offsetWidth;
+    x.s.el.classList.add("flash");
+  }, 60);
+}
+
+q.addEventListener("input", render);
+q.addEventListener("focus", render);
+q.addEventListener("keydown", function(e){
+  if (sug.style.display !== "block") return;
+  var li = sug.querySelectorAll("li[data-i]");
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    e.preventDefault();
+    if (!li.length) return;
+    act = (act + (e.key === "ArrowDown" ? 1 : -1) + li.length) % li.length;
+    li.forEach(function(l,i){ l.classList.toggle("on", i === act); });
+    li[act].scrollIntoView({block:"nearest"});
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if (act > -1) pick(act);
+  } else if (e.key === "Escape") {
+    sug.style.display = "none";
+  }
+});
+sug.addEventListener("mousedown", function(e){
+  var l = e.target.closest("li[data-i]");
+  if (l) { e.preventDefault(); pick(+l.dataset.i); }
+});
+document.addEventListener("click", function(e){
+  if (!e.target.closest(".srch")) sug.style.display = "none";
+});
+clr.onclick = function(){ q.value = ""; render(); q.focus(); };
+
+// Theme
+$("#theme").onclick = function(){
+  var r = document.documentElement;
+  var dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
 };
 </script>
 </body>
