@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Nhạc</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            text-align: center;
+            color: #d32f2f;
+            font-size: 26px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #fce4ec;
+            padding-bottom: 10px;
+        }
+
+        .song-item {
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .song-item:last-child {
+            border-bottom: none;
+        }
+
+        .song-name {
+            display: block;
+            font-size: 22px; /* Kích thước chữ to */
+            font-weight: 800; /* Chữ rất đậm */
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .youtube-link {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 16px;
+            padding: 10px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border: 1px dashed #bddbff;
+        }
+
+        /* Hiệu ứng khi bấm trên điện thoại */
+        .youtube-link:active {
+            background-color: #e0e0e0;
+            color: #ff0000;
+        }
+
+        .label-link {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: -5px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🧧 TUYỂN TẬP NHẠC</h2>
+
+    <div class="song-item">
+        <span class="song-name">Xích Lại Gần Nhau</span>
+        <a class="youtube-link" href="https://youtu.be/6Rp8Ja3Sxxc?si=vBKONM8FICMSI2Cv" target="_blank">https://youtu.be/6Rp8Ja3Sxxc</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Ngôi nhà hạnh phúc</span>
+        <a class="youtube-link" href="https://youtu.be/Mkcjcc-xa3Q?si=NWS6JD8KYCgq8jf-" target="_blank">https://youtu.be/Mkcjcc-xa3Q</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Tuyết Yêu Thương</span>
+        <a class="youtube-link" href="https://youtu.be/MvwvLrc4AsA?si=a-Qw362e1TivgsCo" target="_blank">https://youtu.be/MvwvLrc4AsA?si=a-Qw362e1TivgsCo</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Muốn Cua Anh Làm Bồ</span>
+        <a class="youtube-link" href="https://youtu.be/-A15MFD-H1A?si=r3kVqkWvVe12NDyG" target="_blank">https://youtu.be/-A15MFD-H1A?si=r3kVqkWvVe12NDyG</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name"></span>
+        <a class="youtube-link" href="https://youtu.be/sN1kYXhSbB4?si=7vKpzaEMqLxuLwaj" target="_blank">https://youtu.be/sN1kYXhSbB4</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Chờ Bao Lâu</span>
+        <a class="youtube-link" href="https://youtu.be/Y3aZIZo1_2k?si=OaQB_PHhhwEKMmso" target="_blank">https://youtu.be/Y3aZIZo1_2k?si=OaQB_PHhhwEKMmso</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">That Why</span>
+        <a class="youtube-link" href="https://youtu.be/Z0ZOIlr5L-U?si=mbXeVjulxHPC4Sui" target="_blank">https://youtu.be/Z0ZOIlr5L-U?si=mbXeVjulxHPC4Sui</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Trời Còn Mưa Mãi</span>
+        <a class="youtube-link" href="https://youtu.be/QArqDbWVQmA?si=zp-yWyjed1bnrdlU" target="_blank">https://youtu.be/QArqDbWVQmA?si=zp-yWyjed1bnrdlU</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Như hoa mùa xuân</span>
+        <div class="link-container">
+            <a class="youtube-link" href="https://youtu.be/cKQE0u520hk?si=4NL8WuixD0ei4rvR" target="_blank">Link 1: https://youtu.be/cKQE0u520hk</a>
+            <a class="youtube-link" href="https://youtu.be/BmG5xcouP_k?si=yLIyXMgqooM7tjIf" target="_blank">Link 2: https://youtu.be/BmG5xcouP_k</a>
+        </div>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Chuyện cũ bỏ qua</span>
+        <div class="link-container">
+            <a class="youtube-link" href="https://youtu.be/d9kOEz8QSAU?si=RVy5pTd8OUXrywNP" target="_blank">Link 1: https://youtu.be/d9kOEz8QSAU</a>
+            <a class="youtube-link" href="https://youtu.be/Qvu-HqyuvfM?si=uj2tyzAXMp-q0Jkn" target="_blank">Link 2: https://youtu.be/Qvu-HqyuvfM</a>
+        </div>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Đoản ca xuân</span>
+        <a class="youtube-link" href="https://youtu.be/6ED2_ackWUY?si=suVndTnPF7wCLy7g" target="_blank">https://youtu.be/6ED2_ackWUY</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Ngày Xuân Long Phụng Sum Vầy</span>
+        <a class="youtube-link" href="https://youtu.be/-G80VOHd1Pk?si=bgJKVXFhs-oEq4xv" target="_blank">https://youtu.be/-G80VOHd1Pk</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Thần Tài Đến</span>
+        <a class="youtube-link" href="https://youtu.be/DcXOgx2cvjA?si=J5X_xwyDEZn0Vbfn" target="_blank">https://youtu.be/DcXOgx2cvjA</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Đón Xuân</span>
+        <a class="youtube-link" href="https://youtu.be/uQiApUd99wQ?si=_PgwCWfW2iNpAFh1" target="_blank">https://youtu.be/uQiApUd99wQ</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Tết Là Tết</span>
+        <a class="youtube-link" href="https://youtu.be/yV_OtSuKxmU?si=uMJu7tc_UFSW83kS" target="_blank">https://youtu.be/yV_OtSuKxmU</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Cánh Thiệp Đầu Xuân</span>
+        <a class="youtube-link" href="https://youtu.be/-VMrTczP_Ck?si=k0utkCXkPEE7VodS" target="_blank">https://youtu.be/-VMrTczP_Ck</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">ANH CHO EM MÙA XUÂN</span>
+        <a class="youtube-link" href="https://youtu.be/X5l9cU2D2U4?si=wM20iojp5UEyIbTW" target="_blank">https://youtu.be/X5l9cU2D2U4</a>
+    </div>
+
+    <div class="song-item">
+        <span class="song-name">Tết Bình An</span>
+        <a class="youtube-link" href="https://youtu.be/hrI74P6v-UQ?si=e84jKpnY5TIFWZYH" target="_blank">https://youtu.be/hrI74P6v-UQ</a>
+    </div>
+
+</div>
+
+</body>
+</html>
